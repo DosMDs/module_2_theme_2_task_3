@@ -1,15 +1,16 @@
 [
-    7,
-    8,
-    9,
-    "+",
-    4,
-    5,
-    6,
-    "-",
-    1,
-    2,
-    3,
-    "C",
-    "="
-  ]
+    {"id": "01", "value": 7, "isOperator": false},
+    {"id": "02", "value": 8, "isOperator": false},
+    {"id": "03", "value": 9, "isOperator": false},
+    {"id": "04", "value": "+", "isOperator": true},
+    {"id": "05", "value": 4, "isOperator": false},
+    {"id": "06", "value": 5, "isOperator": false},
+    {"id": "07", "value": 6, "isOperator": false},
+    {"id": "08", "value": "-", "isOperator": true},
+    {"id": "09", "value": 1, "isOperator": false},
+    {"id": "10", "value": 2, "isOperator": false},
+    {"id": "11", "value": 3, "isOperator": false},
+    {"id": "12", "value": "C", "isOperator": true},
+	{"id": "13", "value": 0, "isOperator": false},
+    {"id": "14", "value": "=", "isOperator": true}
+]
