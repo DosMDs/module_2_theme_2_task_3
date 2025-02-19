@@ -10,7 +10,7 @@
     {"id": "09", "value": 1, "style": "number"},
     {"id": "10", "value": 2, "style": "number"},
     {"id": "11", "value": 3, "style": "number"},
-    {"id": "12", "value": "C", "style": "operator"},
+    {"id": "12", "value": "C", "style": "operator-reset"},
 	{"id": "13", "value": 0, "style": "number"},
     {"id": "14", "value": "=", "style": "operator"}
 ]
