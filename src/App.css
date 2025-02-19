@@ -15,7 +15,7 @@
 	width: 100%;
 }
 
-button:nth-child(13),
-button:nth-child(14) {
+.button:nth-child(13),
+.button:nth-child(14) {
 	grid-column: span 2;
 }
