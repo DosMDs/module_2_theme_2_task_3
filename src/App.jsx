@@ -9,15 +9,15 @@ function App() {
 	const [operand2, setOperand2] = useState("");
 
 	const executeOperation = (currentOperation) => {
-		if (!operand1 && currentOperation !== "=") {
-			setOperation(currentOperation);
-			return;
-		}
-
 		if (currentOperation === "C") {
 			setOperand1("");
 			setOperand2("");
 			setOperation("");
+			return;
+		}
+
+		if (!operand1 && currentOperation !== "=") {
+			setOperation(currentOperation);
 			return;
 		}
 
@@ -44,12 +44,19 @@ function App() {
 		setOperand1("");
 	};
 
+	const setOperand = (operand) => {
+		if (operand2 && !operation) {
+			setOperand2("");
+		}
+		setOperand1(operand1 + operand);
+	};
+
 	useEffect(() => {
 		const handleKeyUp = (event) => {
 			if ("+-=".indexOf(event.key) >= 0) {
 				executeOperation(event.key);
 			} else if ("1234567890".indexOf(event.key) >= 0) {
-				setOperand1(operand1 + event.key);
+				setOperand(event.key);
 			}
 		};
 
@@ -64,7 +71,7 @@ function App() {
 			if (isNaN(event.target.dataset.value)) {
 				executeOperation(event.target.dataset.value);
 			} else {
-				setOperand1(operand1 + event.target.dataset.value);
+				setOperand(event.target.dataset.value);
 			}
 		}
 	};
