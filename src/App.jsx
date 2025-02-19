@@ -77,7 +77,11 @@ function App() {
 			<div className="button-container" onClick={onButtonClick}>
 				{NUMS.map((num) => {
 					return (
-						<button key={num.id} data-value={num.value}>
+						<button
+							className="button"
+							key={num.id}
+							data-value={num.value}
+						>
 							{num.value}
 						</button>
 					);
