@@ -6,13 +6,20 @@
 
 .button {
 	padding: 10px;
-	background: #eee;
 	border: 1px solid #ccc;
 	text-align: center;
 	cursor: pointer;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
+}
+
+.number {
+	background: #eee;
+}
+
+.operator {
+	background: #5875f3;
 }
 
 .button:nth-child(13),

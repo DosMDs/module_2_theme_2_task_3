@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import styles from "./app.module.css";
 import data from "./data.json";
 
 function App() {
@@ -81,11 +81,13 @@ function App() {
 			<output>
 				{operand2 + " " + operation + " " + operand1 || "0"}
 			</output>
-			<div className="button-container" onClick={onButtonClick}>
+			<div className={styles["button-container"]} onClick={onButtonClick}>
 				{NUMS.map((num) => {
 					return (
 						<button
-							className="button"
+							className={
+								styles["button"] + " " + styles[num.style]
+							}
 							key={num.id}
 							data-value={num.value}
 						>
