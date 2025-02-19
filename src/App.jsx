@@ -3,6 +3,17 @@ import styles from "./app.module.css";
 import Button from "./Button";
 import data from "./data.json";
 
+const getResultOperation = (operand1, operand2, operation) => {
+	switch (operation) {
+		case "+":
+			return String(Number(operand2) + Number(operand1));
+		case "-":
+			return String(Number(operand2) - Number(operand1));
+		default:
+			return "";
+	}
+};
+
 function App() {
 	const NUMS = data;
 	const [operation, setOperation] = useState("");
@@ -23,16 +34,7 @@ function App() {
 		}
 
 		if (operation) {
-			switch (operation) {
-				case "+":
-					setOperand2(String(Number(operand2) + Number(operand1)));
-					break;
-				case "-":
-					setOperand2(String(Number(operand2) - Number(operand1)));
-					break;
-				default:
-					break;
-			}
+			setOperand2(getResultOperation(operand1, operand2, operation));
 		} else {
 			setOperand2(operand1);
 		}
@@ -58,6 +60,8 @@ function App() {
 				executeOperation(event.key);
 			} else if ("1234567890".indexOf(event.key) >= 0) {
 				setOperand(event.key);
+			} else if (event.key === "Enter") {
+				executeOperation("=");
 			}
 		};
 
