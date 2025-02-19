@@ -3,8 +3,6 @@ import styles from "./app.module.css";
 import Button from "./Button";
 import data from "./data.json";
 
-let isFinal = false;
-
 const getResultOperation = (operand1, operand2, operation) => {
 	switch (operation) {
 		case "+":
@@ -21,9 +19,10 @@ function App() {
 	const [operation, setOperation] = useState("");
 	const [operand1, setOperand1] = useState("");
 	const [operand2, setOperand2] = useState("");
+	const [isFinal, setIsFinal] = useState(false);
 
 	const executeOperation = (currentOperation) => {
-		isFinal = false;
+		setIsFinal(false);
 		if (currentOperation === "C") {
 			setOperand1("");
 			setOperand2("");
@@ -44,7 +43,7 @@ function App() {
 
 		if (currentOperation === "=") {
 			setOperation("");
-			isFinal = true;
+			setIsFinal(true);
 		} else {
 			setOperation(currentOperation);
 		}
@@ -52,7 +51,7 @@ function App() {
 	};
 
 	const setOperand = (operand) => {
-		isFinal = false;
+		setIsFinal(false);
 		if (operand2 && !operation) {
 			setOperand2("");
 		}
@@ -88,7 +87,13 @@ function App() {
 
 	return (
 		<>
-			<output className={styles.result}>
+			<output
+				className={
+					isFinal
+						? styles.result + " " + styles["result-final"]
+						: styles.result
+				}
+			>
 				{operand2 + " " + operation + " " + operand1}
 			</output>
 			<div className={styles["button-container"]} onClick={onButtonClick}>
