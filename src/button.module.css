@@ -23,6 +23,11 @@
 	color: #eee;
 }
 
+.operator-execute {
+	background: #44cc66;
+	color: #eee;
+}
+
 .button:nth-child(13),
 .button:nth-child(14) {
 	grid-column: span 2;
