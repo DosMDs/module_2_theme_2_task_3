@@ -75,8 +75,8 @@ function App() {
 		};
 	});
 
-	const onButtonClick = (number) => {
-		if (isNaN(number)) {
+	const onButtonClick = (number, isOperand) => {
+		if (isOperand) {
 			executeOperation(number);
 		} else {
 			setOperand(number);
