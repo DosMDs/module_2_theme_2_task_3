@@ -75,13 +75,11 @@ function App() {
 		};
 	});
 
-	const onButtonClick = (event) => {
-		if (event.target.tagName === "BUTTON") {
-			if (isNaN(event.target.dataset.value)) {
-				executeOperation(event.target.dataset.value);
-			} else {
-				setOperand(event.target.dataset.value);
-			}
+	const onButtonClick = (number) => {
+		if (isNaN(number)) {
+			executeOperation(number);
+		} else {
+			setOperand(number);
 		}
 	};
 
@@ -96,9 +94,15 @@ function App() {
 			>
 				{operand2 + " " + operation + " " + operand1}
 			</output>
-			<div className={styles["button-container"]} onClick={onButtonClick}>
+			<div className={styles["button-container"]}>
 				{NUMS.map((num) => {
-					return <Button key={num.id} {...num} />;
+					return (
+						<Button
+							key={num.id}
+							{...num}
+							onButtonClick={onButtonClick}
+						/>
+					);
 				})}
 			</div>
 		</>

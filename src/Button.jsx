@@ -1,11 +1,11 @@
 import styles from "./button.module.css";
 
-const Button = ({ id, value, style }) => {
+const Button = ({ id, value, style, onButtonClick }) => {
 	return (
 		<button
 			className={styles["button"] + " " + styles[style]}
-			data-value={value}
-			data-id={id}
+			onClick={onButtonClick.bind(null, value)}
+			id={id}
 		>
 			{value}
 		</button>
