@@ -60,12 +60,18 @@ function App() {
 
 	useEffect(() => {
 		const handleKeyUp = (event) => {
-			if ("+-=".indexOf(event.key) >= 0) {
-				executeOperation(event.key);
-			} else if ("1234567890".indexOf(event.key) >= 0) {
-				setOperand(event.key);
-			} else if (event.key === "Enter") {
+			if (event.key === "Enter") {
 				executeOperation("=");
+				return;
+			}
+
+			const num = NUMS.find((num) => num.value === event.key);
+			if (!num) return;
+
+			if (num.isOperand) {
+				executeOperation(num.value);
+			} else {
+				setOperand(num.value);
 			}
 		};
 
